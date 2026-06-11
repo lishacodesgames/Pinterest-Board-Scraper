@@ -17,3 +17,8 @@ I have three pinterest boards: <br>
 This project randomly chooses 1 from each (2 from sidebar) and saves them to this repository using Github Actions, every 30 minutes.
 
 So now I have infinite cute backgrouds!
+
+## How it works
+It scrapes my pinterest boards, downloads some to cache, then pushes 1 pg and 1 gif per category to this repository. My global settings.json's background images point to the png and gifs store in the repo.
+
+Since the names never change, I don't have to do anything except occasionally add more pins to my boards
