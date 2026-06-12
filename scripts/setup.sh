@@ -10,6 +10,7 @@ cd "$REPO_ROOT"
 
 # verify anyways
 if [ ! -f ".gitignore" ]; then
+   echo
    echo "ERROR: Repository root not found!"
    exit 1
 fi
@@ -19,6 +20,15 @@ python3 -m venv .venv
 
 echo "Upgrading pip..."
 .venv/bin/python -m pip install --upgrade pip
+
+echo "Installing requirements..."
+if [ ! -f requirements.txt ]; then
+   echo
+   echo "ERROR: requirements.txt not found!"
+   exit 1
+fi
+
+.venv/bin/python -m pip install -r requirements.txt
 
 echo
 echo "Setup complete"
