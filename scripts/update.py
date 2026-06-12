@@ -16,16 +16,19 @@ def get_json(type: str):
    BOARD_URL_ROOT = "https://https://in.pinterest.com/coderlisha/vscode-"
 
    print("\nScraping for", type, "backgrounds...")
-   cache_json = str(CACHE_DIR / type / "pins.json")
+   pins_json = str(CACHE_DIR / type / "pins.json")
+
+   # so that github workflows can run this in VM
+   PINTEREST_DL =  str(REPO_ROOT / ".venv/bin/pinterest-dl")
 
    command = [
-      "pinterest-dl", "scrape",
+      PINTEREST_DL, "scrape",
       BOARD_URL_ROOT + type + "/",
-      "--cache", cache_json
+      "--cache", pins_json
    ]
 
    result = subprocess.run(command, text=True)
-   print("Pins successfully saved to", cache_json)
+   print("Pins successfully saved to", pins_json)
    print("Exit code for", type, "board:", result.returncode)
 
 def organise(type: str):
