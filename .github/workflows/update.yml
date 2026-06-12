@@ -1,0 +1,37 @@
+name: Update Backgrounds
+
+on:
+   workflow_dispatch:
+
+   schedule:
+      - cron: "0 0 * * *"
+
+jobs:
+   update:
+      runs-on: ubuntu-latest
+
+      steps:
+         -  name: Checkout repository
+            uses: actions/checkout@v4
+
+         -  name: Setup python
+            uses: actions/setup-python@v5
+
+         -  name: Setup venv & install dependencies
+            run: ./scripts/setup.sh
+
+         -  name: Update backgrounds
+            run: .venv/bin/python scripts/update.py
+
+         -  name: Configure git
+            run:  |
+               git config user.name "github-actions[bot]"
+               git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+         -  name: Commit changes (only if changes exist)
+            run: |
+               git add backgrounds/
+               git diff --staged --quiet || git commit -m "Updated backgrounds"
+
+         -  name: Push changes
+            run: git push
