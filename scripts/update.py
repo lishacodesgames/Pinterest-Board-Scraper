@@ -13,7 +13,7 @@ CACHE_DIR = REPO_ROOT / "cache"
 BG_DIR = REPO_ROOT / "backgrounds"
 
 def get_json(type: str):
-   BOARD_URL_ROOT = "https://https://in.pinterest.com/coderlisha/vscode-"
+   BOARD_URL_ROOT = "https://in.pinterest.com/coderlisha/vscode-"
 
    print("\nScraping for", type, "backgrounds...")
    pins_json = str(CACHE_DIR / type / "pins.json")
