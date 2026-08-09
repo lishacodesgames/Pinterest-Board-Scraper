@@ -24,7 +24,7 @@ jobs:
             run: ./scripts/setup.sh
 
          -  name: Update backgrounds
-            run: .venv/bin/python scripts/update.py
+            run: .venv/bin/python update.py
 
          -  name: Configure git
             run:  |

@@ -8,7 +8,7 @@ import requests
 import random
 import json
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
+REPO_ROOT = Path(__file__).resolve().parent
 CACHE_DIR = REPO_ROOT / "cache"
 BG_DIR = REPO_ROOT / "backgrounds"
 
